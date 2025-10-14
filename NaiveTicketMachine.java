@@ -6,8 +6,7 @@ public class NaiveTicketMachine {
     private int balance;
     // The total amount of money collected by this machine.
     private int total;
-    // The following is the example field that we were asked to type in as part of exercise 2.7.
-    private int status;
+   
 
     /**
      * Create a machine that issues tickets of the given price.

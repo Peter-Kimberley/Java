@@ -1,5 +1,5 @@
 /**
- * TicketMachine models a ticket machine that issues
+ * CopyOfTicketMachine models a ticket machine that issues
  * flat-fare tickets.
  * The price of a ticket is specified via the constructor.
  * Instances will check to ensure that a user only enters
@@ -9,7 +9,7 @@
  * @author David J. Barnes and Michael Kölling
  * @version 2016.02.29
  */
-public class BetterTicketMachine
+public class CopyOfTicketMachine
 {
     // The price of a ticket from this machine.
     private int price;
@@ -18,11 +18,10 @@ public class BetterTicketMachine
     // The total amount of money collected by this machine.
     private int total;
 
-
     /**
      * Create a machine that issues tickets of the given price.
      */
-    public BetterTicketMachine(int cost)
+    public CopyOfTicketMachine(int cost)
     {
         price = cost;
         balance = 0;
@@ -61,8 +60,6 @@ public class BetterTicketMachine
         }
     }
 
- 
-
     /**
      * Print a ticket if enough money has been inserted, and
      * reduce the current balance by the ticket price. Print
@@ -84,6 +81,15 @@ public class BetterTicketMachine
             // Reduce the balance by the price.
             balance = balance - price;
         }
+        /// Added in this else if, to handle if 
+        /// there was an amount inserted but this still 
+        /// didn't meet the required price.
+        
+        else if (balance <= price){
+            int amountLeftToPay = price - balance;
+            System.out.println("You still have:"
+            +amountLeftToPay+" left to pay"); 
+        }
         else {
             System.out.println("You must insert at least: " +
                                (price - balance) + " more cents.");
@@ -101,5 +107,20 @@ public class BetterTicketMachine
         amountToRefund = balance;
         balance = 0;
         return amountToRefund;
+  
+    
+    }
+    
+    public int emptyMachine(){
+        if (balance > 0){
+            int amountToRefund;
+            amountToRefund = balance;
+            balance = 0;
+            return amountToRefund;
+        }
+        else{
+            total = 0;
+            return total;
+        }
     }
 }

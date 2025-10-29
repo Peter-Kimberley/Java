@@ -50,10 +50,27 @@ public class NumberDisplay
      * Increment the display value by one, rolling over to zero if the
      * limit is reached.
      */
-    public void increment()
-    {
-        value = (value + 1) % limit;
+    // public void increment()
+    // {
+    //     value = (value + 1) % limit;
+    // }
+
+/// The following was my method re written to create an if statement
+/// instead of the moudulo increment that was being used. 
+/// the algorithm "Circular counter" is used to increment a value up to
+///  a particular number then go back to zero.
+
+    public void increment(){
+        if (value == limit){
+            value = 0;
+        } else {
+            value = value + 1;
+        }
+
+
     }
+ 
+    
 
 
 }
